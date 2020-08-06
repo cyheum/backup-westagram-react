@@ -1,0 +1,149 @@
+.feeds {
+  width: 615px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  background-color: white;
+  margin-bottom: 60px;
+
+  .iconStyle {
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .feedsTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .wrapProfileL {
+      display: flex;
+      align-items: center;
+      margin: 8px 5px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin: 7px 10px;
+        border-radius: 70%;
+      }
+
+      div {
+        p {
+          margin: 0;
+          color: #b1b1b1;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .feedEtc {
+      width: 25px;
+      margin: 0 13px;
+    }
+  }
+
+  .feedStyle {
+    width: 100%;
+  }
+
+  .feedIcons {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 9px 6px;
+    background-color: white;
+
+    .alignCenter {
+      display: flex;
+      align-items: center;
+
+      .dmIcon {
+        height: 29px;
+      }
+    }
+  }
+
+  .feedLike {
+    display: flex;
+    align-items: center;
+
+    .feedLikeImg {
+      width: 25px;
+      height: 25px;
+      border-radius: 70%;
+      margin: 8px;
+    }
+  }
+
+  .commentListContainer {
+    padding: 0 10px;
+    margin: 0;
+
+    .feedContents {
+      position: relative;
+      word-break: break-all;
+      margin-bottom: 8px;
+
+      a {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  .feedTime {
+    font-size: 12px;
+    color: gray;
+    margin: 13px 0;
+    padding-left: 15px;
+  }
+
+  .commentIcons {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .commentHeart {
+      width: 12px;
+      height: 12px;
+      margin-right: 10px;
+    }
+
+    .searchXBtn {
+      background-image: url("../../123123.png");
+      background-repeat: no-repeat;
+      background-position: -318px -333px;
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .feedComment {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #eaeaea;
+
+    .commentText {
+      width: 90%;
+      height: 18px;
+      border: 0;
+      padding: 0 12px;
+      margin: 18px 0;
+      resize: none;
+      overflow-y: auto;
+
+      &:-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .commentButton {
+      width: 10%;
+      color: #b4def7;
+      background-color: white;
+      border: 0;
+    }
+  }
+}
