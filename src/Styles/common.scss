@@ -1,0 +1,12 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$whiteGrayColor: #fafafa;
+$lightGrayColor: #dbdbdb;
+$darkGrayColor: #8e8e8e;
+$mediumGrayColor: #c7c7c7;
+$blueColor: #0095f6;
+$darkBlueColor: #3d5999;
