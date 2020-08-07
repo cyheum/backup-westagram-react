@@ -1,6 +1,13 @@
-const FeedData = {
-  firstFeed: {
-    feedContents: "",
+export const FeedData = [
+  {
+    feedContents: {
+      userId: "ye_heumheumm",
+      userName: "최예흠",
+      contents: "두부야 안뇨오옹",
+      feedImgSrc: "/images/yeheum/dog.png",
+      LikedPeople: "bn_sj2013",
+      Liked: 928,
+    },
     feedComment: [
       {
         userName: "bn_sj2013",
@@ -12,8 +19,15 @@ const FeedData = {
       },
     ],
   },
-  secondFeed: {
-    feedContents: "",
+  {
+    feedContents: {
+      userId: "ye_heumheumm",
+      userName: "최예흠",
+      contents: "고래야 안녕ㅎㅎ",
+      feedImgSrc: "/images/yeheum/me.jpeg",
+      LikedPeople: "dlwlrma",
+      Liked: 971,
+    },
     feedComment: [
       {
         userName: "dlwlrma",
@@ -25,4 +39,6 @@ const FeedData = {
       },
     ],
   },
-};
+];
+
+// export default FeedData;

@@ -31,7 +31,7 @@ class Login extends React.Component {
   };
 
   goToMain = () => {
-    this.props.history.push("/Main");
+    this.props.history.push("/main-yeheum");
   };
 
   render() {

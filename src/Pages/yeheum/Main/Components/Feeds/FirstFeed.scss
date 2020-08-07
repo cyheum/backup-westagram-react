@@ -78,14 +78,28 @@
     padding: 0 10px;
     margin: 0;
 
-    .feedContents {
+    li {
+      display: flex;
       position: relative;
-      word-break: break-all;
-      margin-bottom: 8px;
+      list-style: none;
+      text-decoration: none;
+      margin-bottom: 3px;
 
       a {
-        margin: 0 5px;
+        padding: 0 5px;
       }
+    }
+  }
+
+  .feedContents {
+    position: relative;
+    word-break: break-all;
+    margin-bottom: 8px;
+    margin-left: 10px;
+
+    a {
+      font-weight: bold;
+      margin: 0 5px;
     }
   }
 
