@@ -22,4 +22,8 @@ textarea:focus {
 
 button {
   border: 0;
+
+  &:focus {
+    outline: none;
+  }
 }
