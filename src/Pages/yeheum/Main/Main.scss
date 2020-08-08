@@ -1,3 +1,13 @@
+@media (max-width: 1024px) {
+  .AsideNav {
+    display: none;
+  }
+
+  .feeds {
+    margin: 80px auto 0;
+  }
+}
+
 header {
   position: fixed;
   top: 0;
@@ -54,6 +64,7 @@ img:hover {
   flex-flow: column;
   align-items: center;
 }
+
 .hiddenSearchBox {
   display: none;
 }

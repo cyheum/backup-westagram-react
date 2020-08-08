@@ -1,5 +1,6 @@
 import React from "react";
 import "./HeaderNav.scss";
+import { Link } from "react-router-dom";
 
 class HeaderNav extends React.Component {
   render() {
@@ -7,17 +8,21 @@ class HeaderNav extends React.Component {
       <header>
         <nav className="HeaderNav">
           <div className="homeIcons">
-            <img
-              className="iconStyle"
-              src="/images/yeheum/logo.png"
-              alt="instaIcon"
-            />
+            <Link to="http://localhost:3000/">
+              <img
+                className="iconStyle"
+                src="/images/yeheum/logo.png"
+                alt="instaIcon"
+              />
+            </Link>
             <div className="hLine"></div>
-            <img
-              className="instaMainImg"
-              src="/images/yeheum/logo_text.png"
-              alt="instaMainImg"
-            />
+            <Link to="http://localhost:3000/">
+              <img
+                className="instaMainImg"
+                src="/images/yeheum/logo_text.png"
+                alt="instaMainImg"
+              />
+            </Link>
           </div>
           <div className="wrapNavTextBar">
             <div className="navTextBarCon">

@@ -1,23 +1,43 @@
 import React from "react";
 import "./HeaderNav.scss";
+import { Link } from "react-router-dom";
 
 class HeaderNav extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      className: "",
+      isItFocus: false,
+    };
+  }
+
+  clickSearchBox = (e) => {
+    e.target.name = "";
+  };
+
+  isFocused = (e) => {};
+
   render() {
     return (
       <header>
         <nav className="HeaderNav">
           <div className="homeIcons">
-            <img
-              className="iconStyle"
-              src="/images/yeheum/logo.png"
-              alt="instaIcon"
-            />
+            <Link to="/">
+              <img
+                className="iconStyle"
+                src="/images/yeheum/logo.png"
+                alt="instaIcon"
+              />
+            </Link>
             <div className="hLine"></div>
-            <img
-              className="instaMainImg"
-              src="/images/yeheum/logo_text.png"
-              alt="instaMainImg"
-            />
+            <Link to="/">
+              <img
+                className="instaMainImg"
+                src="/images/yeheum/logo_text.png"
+                alt="instaMainImg"
+              />
+            </Link>
           </div>
           <div className="wrapNavTextBar">
             <div className="navTextBarCon">
@@ -25,7 +45,12 @@ class HeaderNav extends React.Component {
               <input className="navTextBar" type="text" placeholder="검색" />
               <span className="searchXBtn"></span>
             </div>
-            <div className="searchIconBox">
+            <div
+              className={
+                "searchIconBox " + this.isFocused ? "" : "hiddenSearchBox"
+              }
+              onClick={this.clickSearchBox}
+            >
               <div>
                 <span className="searchImg"></span>
                 <span className="searchText">검색</span>

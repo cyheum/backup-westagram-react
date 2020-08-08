@@ -1,8 +1,8 @@
 import React from "react";
 import "./Main.scss";
-import HeaderNav from "./Components/Nav/HeaderNav";
+import HeaderNav from "../../CommonComponents/Nav/HeaderNav";
 import SearchBox from "./Components/Nav/SearchBox";
-import FirstFeed from "./Components/Feeds/FirstFeed";
+import Feeds from "./Components/Feeds/Feeds";
 import AsideNav from "./Components/AsideNav/AsideNav";
 import { FeedData } from "./Components/Feeds/FeedData";
 
@@ -15,9 +15,8 @@ class Main extends React.Component {
         <main>
           <div className="wrapMain">
             {FeedData.map((el) => {
-              return <FirstFeed feedDOM={el} />;
+              return <Feeds key={el} feedDOM={el} />;
             })}
-            {/* <FirstFeed feedDOM={FeedData[0]} /> */}
             <AsideNav />
           </div>
         </main>

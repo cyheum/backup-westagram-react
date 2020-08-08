@@ -1,5 +1,5 @@
 import React from "react";
-import "./FirstFeed.scss";
+import "./Feeds.scss";
 
 class Comment extends React.Component {
   render() {
@@ -20,7 +20,7 @@ class Comment extends React.Component {
   }
 }
 
-class FirstFeed extends React.Component {
+class Feeds extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -154,4 +154,4 @@ class FirstFeed extends React.Component {
   }
 }
 
-export default FirstFeed;
+export default Feeds;
