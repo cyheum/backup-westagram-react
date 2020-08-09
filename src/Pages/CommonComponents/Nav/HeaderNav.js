@@ -9,20 +9,20 @@ class HeaderNav extends React.Component {
     this.textInput = React.createRef();
 
     this.state = {
-      isItFocus: false,
+      isFocus: false,
     };
   }
 
-  clickSearchBox = (e) => {
+  handleClickSearchBox = (e) => {
     this.setState({
-      isItFocus: true,
+      isFocus: true,
     });
     this.textInput.current.focus();
   };
 
-  showFakeSearchBox = (e) => {
+  handleBlurSearchBox = (e) => {
     this.setState({
-      isItFocus: false,
+      isFocus: false,
     });
   };
 
@@ -53,7 +53,7 @@ class HeaderNav extends React.Component {
               <input
                 className="navTextBar"
                 ref={this.textInput}
-                onBlur={this.showFakeSearchBox}
+                onBlur={this.handleBlurSearchBox}
                 type="text"
                 name="searchText"
                 placeholder="검색"
@@ -62,11 +62,9 @@ class HeaderNav extends React.Component {
             </div>
             <div
               className={
-                this.state.isItFocus === true
-                  ? "hiddenSearchBox"
-                  : "searchIconBox"
+                this.state.isFocus ? "hiddenSearchBox" : "searchIconBox"
               }
-              onClick={this.clickSearchBox}
+              onClick={this.handleClickSearchBox}
             >
               <div>
                 <span className="searchImg"></span>

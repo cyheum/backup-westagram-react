@@ -9,31 +9,36 @@ class AddComment extends React.Component {
     };
   }
 
-  changeHeartColor = () => {
+  handleLikeClick = () => {
     this.setState({
       isLiked: !this.state.isLiked,
     });
   };
 
-  removeComment = () => {};
-
   render() {
+    const { userName, content, id } = this.props.comment;
+
     return (
       <li>
-        <a>{this.props.author.userName}</a>
-        {this.props.author.comment}
+        <a>{userName}</a>
+        {content}
         <span className="commentIcons">
           <img
             className="commentHeart colorHeart"
-            onClick={this.changeHeartColor}
+            onClick={this.handleLikeClick}
             src={
-              this.state.isLiked === true
+              this.state.isLiked
                 ? "/images/yeheum/redheart.png"
                 : "/images/yeheum/heart.png"
             }
             alt="heart"
           />
-          <span onClick={this.removeComment} className="searchXBtn"></span>
+          <span
+            onClick={() => {
+              this.props.clickRemoveBtn(id);
+            }}
+            className="searchXBtn"
+          ></span>
         </span>
       </li>
     );

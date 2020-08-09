@@ -22,8 +22,13 @@ class AsideNav extends React.Component {
                 <a className="storyAll">모두 보기</a>
               </div>
             </div>
-            {UserData.storyProfileList.map((ele) => {
-              return <StoryRecommendProfiles key={ele.iD} author={ele} />;
+            {UserData.storyProfileList.map((storyProfile) => {
+              return (
+                <StoryRecommendProfiles
+                  key={storyProfile.userKey}
+                  author={storyProfile}
+                />
+              );
             })}
           </div>
           <div className="storyRecomWrap">
@@ -33,8 +38,13 @@ class AsideNav extends React.Component {
                 <a className="storyAll">모두 보기</a>
               </div>
             </div>
-            {UserData.recommendProfileList.map((ele) => {
-              return <StoryRecommendProfiles key={ele.iD} author={ele} />;
+            {UserData.recommendProfileList.map((recommendProfile) => {
+              return (
+                <StoryRecommendProfiles
+                  key={recommendProfile.userKey}
+                  author={recommendProfile}
+                />
+              );
             })}
           </div>
           <div className="copyRight">

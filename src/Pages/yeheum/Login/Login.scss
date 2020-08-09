@@ -66,11 +66,11 @@
     color: white;
     background-color: #0095f6;
     cursor: pointer;
-  }
 
-  .loginButton:disabled {
-    cursor: default;
-    opacity: 0.4;
+    &:disabled {
+      cursor: default;
+      opacity: 0.4;
+    }
   }
 
   #forgetPw {

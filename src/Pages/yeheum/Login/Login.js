@@ -13,15 +13,11 @@ class Login extends React.Component {
   }
 
   isIdPwInput = () => {
-    if (
-      this.state.email.length > 1 &&
-      this.state.email.includes("@") &&
-      this.state.pw.length > 5
-    ) {
-      return false;
-    } else {
-      return true;
-    }
+    return (
+      this.state.email.length === 0 ||
+      !this.state.email.includes("@") ||
+      this.state.pw.length <= 5
+    );
   };
 
   handleChange = (e) => {

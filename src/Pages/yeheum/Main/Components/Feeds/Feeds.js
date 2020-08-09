@@ -2,82 +2,62 @@ import React from "react";
 import "./Feeds.scss";
 import AddComment from "./AddComment/AddComment";
 
-// class AddComment extends React.Component {
-//   constructor() {
-//     super();
-
-//     this.state = {
-//       isLiked: false,
-//     };
-//   }
-
-//   changeHeartColor = () => {
-//     this.setState({
-//       isLiked: !this.state.isLiked,
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <li>
-//         <a>{this.props.author.userName}</a>
-//         {this.props.author.comment}
-//         <span className="commentIcons">
-//           <img
-//             className="commentHeart colorHeart"
-//             onClick={this.changeHeartColor}
-//             src={
-//               this.state.isLiked === true
-//                 ? "/images/yeheum/redheart.png"
-//                 : "/images/yeheum/heart.png"
-//             }
-//             alt="heart"
-//           />
-//           <span className="searchXBtn"></span>
-//         </span>
-//       </li>
-//     );
-//   }
-// }
+let lastCommentId = 100;
 
 class Feeds extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: props.feedDOM,
+      data: props.feed,
       isLiked: false,
       newComment: "",
     };
   }
 
-  commentChange = (e) => {
+  handleCommentChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      newComment: e.currentTarget.value,
     });
   };
 
   EnterPush = (e) => {
-    if (e.key === "Enter" && e.target.value.length > 1) {
-      this.addCommentFunc();
+    if (e.key === "Enter" && e.currentTarget.value.length > 1) {
+      this.addComment();
     }
   };
 
-  isItAble = () => {
-    return !(this.state.newComment.length > 0);
+  commentButtonDisabled = () => {
+    return this.state.newComment.length === 0;
   };
 
   commentInputBtn = (e) => {
-    this.addCommentFunc();
+    this.addComment();
     e.preventDefault();
   };
 
-  addCommentFunc = () => {
-    const addComment = {};
-    addComment.userName = this.state.data.feedContents.userId;
-    addComment.comment = this.state.newComment;
-    this.state.data.feedComment.push(addComment);
+  addComment = () => {
+    const newComment = {};
+    newComment.userName = this.state.data.feedContents.userId;
+    newComment.content = this.state.newComment;
+    newComment.id = lastCommentId++;
     this.setState({
       newComment: "",
+      data: {
+        ...this.state.data,
+        feedComment: [...this.state.data.feedComment, newComment],
+      },
+    });
+  };
+
+  handleRemoveClick = (commentId) => {
+    console.log("hi");
+    this.setState({
+      data: {
+        ...this.state.data,
+        feedComment: this.state.data.feedComment.filter((comment) => {
+          return comment.id !== commentId;
+        }),
+      },
     });
   };
 
@@ -90,7 +70,7 @@ class Feeds extends React.Component {
   render() {
     const {
       feedComment,
-      feedContents: { userId, userName, LikedPeople, feedImgSrc, Liked },
+      feedContents: { userId, userName, likedPeople, feedImgSrc, liked },
     } = this.state.data;
     return (
       <section className="feeds">
@@ -99,20 +79,20 @@ class Feeds extends React.Component {
             <div className="wrapProfileL">
               <img src="/images/yeheum/myprofile.png" alt="profileImg" />
               <div>
-                <a href="">{userId}</a>
+                <a>{userId}</a>
                 <p>{userName}</p>
               </div>
             </div>
-            <img class="feedEtc" src="/images/yeheum/more.png" alt="else" />
+            <img className="feedEtc" src="/images/yeheum/more.png" alt="else" />
           </div>
           <img className="feedStyle" src={feedImgSrc} alt="feedImg" />
           <div className="feedIcons">
-            <div class="alignCenter">
+            <div className="alignCenter">
               <img
                 className="iconStyle bigHeart colorHeart"
                 onClick={this.changeHeartColor}
                 src={
-                  this.state.isLiked === true
+                  this.state.isLiked
                     ? "/images/yeheum/redheart.png"
                     : "/images/yeheum/heart.png"
                 }
@@ -142,11 +122,11 @@ class Feeds extends React.Component {
               alt="profile"
             />
             <div>
-              <a>{LikedPeople}</a>님
+              <a>{likedPeople}</a>님
               <a>
                 외{" "}
                 <span className="peopleCount">
-                  {this.state.isLiked === true ? Liked + 1 : Liked}
+                  {this.state.isLiked ? liked + 1 : liked}
                 </span>
                 명
               </a>
@@ -158,27 +138,29 @@ class Feeds extends React.Component {
               <a>ye_heumheummm</a>두부야 안뇨오옹
             </div>
             <ul className="commentListContainer" key="commentList">
-              {feedComment.map((el) => {
-                return <AddComment author={el} />;
+              {feedComment.map((comment) => {
+                return (
+                  <AddComment
+                    key={comment.id}
+                    comment={comment}
+                    clickRemoveBtn={this.handleRemoveClick}
+                  />
+                );
               })}
             </ul>
             <div className="feedTime">6시간전</div>
           </div>
-          <form
-            className="feedComment"
-            type="submit"
-            onChange={this.commentChange}
-          >
+          <form className="feedComment" type="submit">
             <textarea
               className="commentText"
               onKeyUp={(e) => this.EnterPush(e)}
-              name="newComment"
+              onChange={this.handleCommentChange}
               value={this.state.newComment}
               placeholder="댓글 달기..."
             ></textarea>
             <button
               className="commentButton"
-              disabled={this.isItAble()}
+              disabled={this.commentButtonDisabled()}
               onClick={this.commentInputBtn}
             >
               게시

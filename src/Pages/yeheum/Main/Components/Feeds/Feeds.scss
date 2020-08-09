@@ -29,7 +29,7 @@
 
       div {
         p {
-          margin: 0;
+          margin: 5px 0;
           color: #b1b1b1;
           font-size: 14px;
         }
@@ -155,9 +155,15 @@
 
     .commentButton {
       width: 10%;
-      color: #b4def7;
+      color: #0095f6;
       background-color: white;
       border: 0;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
     }
   }
 }

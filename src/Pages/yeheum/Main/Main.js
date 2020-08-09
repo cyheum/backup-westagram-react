@@ -14,8 +14,8 @@ class Main extends React.Component {
         <SearchBox />
         <main>
           <div className="wrapMain">
-            {FeedData.map((el) => {
-              return <Feeds key={el} feedDOM={el} />;
+            {FeedData.map((feed) => {
+              return <Feeds key={feed.id} feed={feed} />;
             })}
             <AsideNav />
           </div>
