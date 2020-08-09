@@ -9,15 +9,23 @@ class HeaderNav extends React.Component {
     this.textInput = React.createRef();
 
     this.state = {
+      searchText: "",
       isFocus: false,
     };
   }
 
-  handleClickSearchBox = (e) => {
+  handleChangeSearchText = (e) => {
+    this.setState({
+      searchText: e.currentTarget.value,
+    });
+  };
+
+  handleClickSearchBox = () => {
     this.setState({
       isFocus: true,
     });
     this.textInput.current.focus();
+    this.textInput.current.select();
   };
 
   handleBlurSearchBox = (e) => {
@@ -53,9 +61,9 @@ class HeaderNav extends React.Component {
               <input
                 className="navTextBar"
                 ref={this.textInput}
+                onChange={this.handleChangeSearchText}
                 onBlur={this.handleBlurSearchBox}
                 type="text"
-                name="searchText"
                 placeholder="검색"
               />
               <span className="searchXBtn"></span>
@@ -68,7 +76,11 @@ class HeaderNav extends React.Component {
             >
               <div>
                 <span className="searchImg"></span>
-                <span className="searchText">검색</span>
+                <span className="searchText">
+                  {this.state.searchText.length === 0
+                    ? "검색"
+                    : this.state.searchText}
+                </span>
               </div>
             </div>
           </div>

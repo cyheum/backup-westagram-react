@@ -4,6 +4,27 @@ import UserData from "../../UserData";
 import StoryRecommendProfiles from "./StoryRecommendProfile/StoryRecommendProfiles";
 
 class AsideNav extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isStoryBtnPushed: false,
+      isRecommendBtnPushed: false,
+    };
+  }
+
+  handlerStoryShowAllClick = () => {
+    this.setState({
+      isStoryBtnPushed: !this.state.isStoryBtnPushed,
+    });
+  };
+
+  handlerRecommendShowAllClick = () => {
+    this.setState({
+      isRecommendBtnPushed: !this.state.isRecommendBtnPushed,
+    });
+  };
+
   render() {
     return (
       <div className="AsideNav">
@@ -15,11 +36,19 @@ class AsideNav extends React.Component {
               <p>최예흠</p>
             </div>
           </div>
-          <div className="storyRecomWrap">
+          <div
+            className={
+              this.state.isStoryBtnPushed
+                ? "heightAutoStoryRecomWrap"
+                : "storyRecomWrap"
+            }
+          >
             <div className="storyRecomStyle">
               <div>스토리</div>
               <div>
-                <a className="storyAll">모두 보기</a>
+                <a className="storyAll" onClick={this.handlerStoryShowAllClick}>
+                  모두 보기
+                </a>
               </div>
             </div>
             {UserData.storyProfileList.map((storyProfile) => {
@@ -31,11 +60,22 @@ class AsideNav extends React.Component {
               );
             })}
           </div>
-          <div className="storyRecomWrap">
+          <div
+            className={
+              this.state.isRecommendBtnPushed
+                ? "heightAutoStoryRecomWrap"
+                : "storyRecomWrap"
+            }
+          >
             <div className="storyRecomStyle">
               <div>회원님을 위한 추천</div>
               <div>
-                <a className="storyAll">모두 보기</a>
+                <a
+                  className="storyAll"
+                  onClick={this.handlerRecommendShowAllClick}
+                >
+                  모두 보기
+                </a>
               </div>
             </div>
             {UserData.recommendProfileList.map((recommendProfile) => {
