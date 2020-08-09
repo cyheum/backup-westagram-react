@@ -6,17 +6,25 @@ class HeaderNav extends React.Component {
   constructor() {
     super();
 
+    this.textInput = React.createRef();
+
     this.state = {
-      className: "",
       isItFocus: false,
     };
   }
 
   clickSearchBox = (e) => {
-    e.target.name = "";
+    this.setState({
+      isItFocus: true,
+    });
+    this.textInput.current.focus();
   };
 
-  isFocused = (e) => {};
+  showFakeSearchBox = (e) => {
+    this.setState({
+      isItFocus: false,
+    });
+  };
 
   render() {
     return (
@@ -42,12 +50,21 @@ class HeaderNav extends React.Component {
           <div className="wrapNavTextBar">
             <div className="navTextBarCon">
               <span className="searchImgInText"></span>
-              <input className="navTextBar" type="text" placeholder="검색" />
+              <input
+                className="navTextBar"
+                ref={this.textInput}
+                onBlur={this.showFakeSearchBox}
+                type="text"
+                name="searchText"
+                placeholder="검색"
+              />
               <span className="searchXBtn"></span>
             </div>
             <div
               className={
-                "searchIconBox " + this.isFocused ? "" : "hiddenSearchBox"
+                this.state.isItFocus === true
+                  ? "hiddenSearchBox"
+                  : "searchIconBox"
               }
               onClick={this.clickSearchBox}
             >
