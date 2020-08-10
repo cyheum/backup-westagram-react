@@ -74,7 +74,7 @@ class HeaderNav extends React.Component {
               }
               onClick={this.handleClickSearchBox}
             >
-              <div>
+              <div class="wrapSearchBoxContain">
                 <span className="searchImg"></span>
                 <span className="searchText">
                   {this.state.searchText.length === 0
