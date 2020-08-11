@@ -1,7 +1,7 @@
 import React from "react";
-import "./AsideNav.scss";
 import UserData from "../../UserData";
 import StoryRecommendProfiles from "./StoryRecommendProfile/StoryRecommendProfiles";
+import "./AsideNav.scss";
 
 class AsideNav extends React.Component {
   constructor() {
@@ -27,13 +27,13 @@ class AsideNav extends React.Component {
 
   render() {
     return (
-      <div className="AsideNav">
-        <aside className="main-right">
+      <aside className="AsideNav">
+        <div className="main-right">
           <div className="wrapProfileR">
             <img alt="profileImg" src="/images/yeheum/myprofile.png" />
             <div>
-              <a id="yourName">ye_heumheummm</a>
-              <p>최예흠</p>
+              <div className="userId">ye_heumheummm</div>
+              <div className="userName">최예흠</div>
             </div>
           </div>
           <div
@@ -46,9 +46,12 @@ class AsideNav extends React.Component {
             <div className="storyRecomStyle">
               <div>스토리</div>
               <div>
-                <a className="storyAll" onClick={this.handlerStoryShowAllClick}>
+                <div
+                  className="storyAll"
+                  onClick={this.handlerStoryShowAllClick}
+                >
                   모두 보기
-                </a>
+                </div>
               </div>
             </div>
             {UserData.storyProfileList.map((storyProfile) => {
@@ -70,12 +73,12 @@ class AsideNav extends React.Component {
             <div className="storyRecomStyle">
               <div>회원님을 위한 추천</div>
               <div>
-                <a
+                <div
                   className="storyAll"
                   onClick={this.handlerRecommendShowAllClick}
                 >
                   모두 보기
-                </a>
+                </div>
               </div>
             </div>
             {UserData.recommendProfileList.map((recommendProfile) => {
@@ -94,8 +97,8 @@ class AsideNav extends React.Component {
             <br />
             <br />© 2020 INSTAGRAM
           </div>
-        </aside>
-      </div>
+        </div>
+      </aside>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.scss";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Login extends React.Component {
   constructor() {
@@ -71,8 +71,11 @@ class Login extends React.Component {
                   로그인
                 </button>
               </form>
-              <div id="forgetPw">
-                <a href="login.html">비밀번호를 잊으셨나요?</a>
+              <div className="forgetPw">
+                <div className="forgetPwText">비밀번호를 잊으셨나요?</div>
+                <Link to="/sign-up-yeheum">
+                  <div className="SignUpText">회원가입</div>
+                </Link>
               </div>
             </div>
           </article>

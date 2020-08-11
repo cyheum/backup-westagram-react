@@ -1,8 +1,6 @@
-.Login {
-  body {
-    background-color: #fafafa;
-  }
+@import "../../../Styles/common.scss";
 
+.Login {
   .wrapLogin {
     width: 350px;
     height: 380px;
@@ -73,14 +71,26 @@
     }
   }
 
-  #forgetPw {
+  .forgetPw {
     margin: 10px 0;
-  }
 
-  #forgetPw a {
-    text-decoration: none;
-    color: #00376b;
-    font-size: 12px;
+    .forgetPwText {
+      font-weight: bold;
+      text-decoration: none;
+      color: #00376b;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .SignUpText {
+      font-weight: bold;
+      text-decoration: none;
+      color: #00376b;
+      font-size: 12px;
+      margin-top: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 
   .wrapsection {

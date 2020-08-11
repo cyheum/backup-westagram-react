@@ -1,0 +1,43 @@
+.SearchBox {
+  .wrapSearchBox {
+    position: absolute;
+    top: 51px;
+    right: calc(50% + (241px / 2) + 22px);
+
+    .searchBox {
+      width: 241px;
+      height: 362px;
+      display: flex;
+      position: fixed;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      background-color: white;
+      z-index: 20;
+      overflow: auto;
+
+      .WrapSearchList {
+        width: 100%;
+      }
+    }
+  }
+
+  .hiddenSearchBox {
+    display: none;
+
+    .searchBox {
+      width: 241px;
+      height: 362px;
+      display: flex;
+      position: fixed;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      background-color: white;
+      z-index: 20;
+      overflow: auto;
+
+      .WrapSearchList {
+        width: 100%;
+      }
+    }
+  }
+}

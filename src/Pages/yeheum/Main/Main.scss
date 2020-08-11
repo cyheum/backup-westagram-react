@@ -1,110 +1,70 @@
-@media (max-width: 1024px) {
-  .AsideNav {
-    display: none;
+.YeheumMain {
+  @media (max-width: 1024px) {
+    .AsideNav {
+      display: none;
+    }
+
+    .feeds {
+      margin: 80px auto 0;
+    }
   }
 
-  .feeds {
-    margin: 80px auto 0;
+  body {
+    background-color: #fafafa;
   }
-}
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  border-bottom: 1px solid #dddddd;
-  background-color: white;
-}
+  .profile {
+    height: 25px;
+    margin-bottom: 7px;
+    margin-left: 10px;
+  }
 
-body {
-  background-color: #fafafa;
-}
+  main {
+    margin-top: 80px;
+  }
 
-.profile {
-  height: 25px;
-  margin-bottom: 7px;
-  margin-left: 10px;
-}
+  .wrapMain {
+    position: relative;
+    max-width: 935px;
+    margin: 0 auto;
+  }
 
-main {
-  margin-top: 80px;
-}
+  .emptyBox {
+    max-width: 293px;
+    width: 100%;
+    height: 1px;
+    right: 0;
+  }
 
-.wrapMain {
-  position: relative;
-  width: 935px;
-  margin: 0 auto;
-}
+  .feedsTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.emptyBox {
-  max-width: 293px;
-  width: 100%;
-  height: 1px;
-  right: 0;
-}
+  img:hover {
+    cursor: pointer;
+  }
 
-.feedsTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .feedStyle:hover {
+    cursor: default;
+  }
 
-img:hover {
-  cursor: pointer;
-}
+  .changeMain {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
 
-.feedStyle:hover {
-  cursor: default;
-}
+  .navTextBarCon .peopleCount {
+    font-weight: bold;
+    font-size: 16px;
+  }
 
-.changeMain {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-}
-
-.hiddenSearchBox {
-  display: none;
-}
-
-.searchBox {
-  width: 241px;
-  height: 362px;
-  display: flex;
-  position: fixed;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  background-color: white;
-  z-index: 20;
-  overflow: auto;
-}
-
-.wrapSearchBox {
-  position: absolute;
-  top: 51px;
-  right: calc(50% + (241px / 2) + 22px);
-}
-
-.WrapSearchList {
-  width: 100%;
-}
-.searchProfile {
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid #dddddd;
-  cursor: pointer;
-}
-
-.navTextBarCon .peopleCount {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.feedLikeBtn {
-  width: 25px;
-  height: 25px;
-  border-radius: 70%;
-  margin: 10px;
+  .feedLikeBtn {
+    width: 25px;
+    height: 25px;
+    border-radius: 70%;
+    margin: 10px;
+  }
 }

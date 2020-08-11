@@ -20,26 +20,30 @@ class AddComment extends React.Component {
 
     return (
       <li>
-        <a>{userName}</a>
-        {content}
-        <span className="commentIcons">
-          <img
-            className="commentHeart colorHeart"
-            onClick={this.handleLikeClick}
-            src={
-              this.state.isLiked
-                ? "/images/yeheum/redheart.png"
-                : "/images/yeheum/heart.png"
-            }
-            alt="heart"
-          />
-          <span
-            onClick={() => {
-              this.props.clickRemoveBtn(id);
-            }}
-            className="searchXBtn"
-          ></span>
-        </span>
+        <div>
+          <span className="userName">{userName}</span>
+          {content}
+        </div>
+        <div>
+          <span className="commentIcons">
+            <img
+              className="commentHeart colorHeart"
+              onClick={this.handleLikeClick}
+              src={
+                this.state.isLiked
+                  ? "/images/yeheum/redheart.png"
+                  : "/images/yeheum/heart.png"
+              }
+              alt="heart"
+            />
+            <span
+              onClick={() => {
+                this.props.clickRemoveBtn(id);
+              }}
+              className="searchXBtn"
+            ></span>
+          </span>
+        </div>
       </li>
     );
   }

@@ -1,0 +1,26 @@
+.SearchProfiles {
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+
+  .SearchBoxContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    div {
+      display: flex;
+      flex-flow: column;
+      margin: 0 5px;
+      .userId {
+        font-weight: bold;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

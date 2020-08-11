@@ -16,7 +16,7 @@ class HeaderNav extends React.Component {
 
   handleChangeSearchText = (e) => {
     this.setState({
-      searchText: e.currentTarget.value,
+      searchText: e.target.value,
     });
   };
 
@@ -35,8 +35,9 @@ class HeaderNav extends React.Component {
   };
 
   render() {
+    const { searchText, isFocus } = this.state;
     return (
-      <header>
+      <header className="HeaderNavContainer">
         <nav className="HeaderNav">
           <div className="homeIcons">
             <Link to="/">
@@ -69,17 +70,13 @@ class HeaderNav extends React.Component {
               <span className="searchXBtn"></span>
             </div>
             <div
-              className={
-                this.state.isFocus ? "hiddenSearchBox" : "searchIconBox"
-              }
+              className={isFocus ? "hiddenSearchBox" : "searchIconBox"}
               onClick={this.handleClickSearchBox}
             >
-              <div class="wrapSearchBoxContain">
+              <div className="wrapSearchBoxContain">
                 <span className="searchImg"></span>
                 <span className="searchText">
-                  {this.state.searchText.length === 0
-                    ? "검색"
-                    : this.state.searchText}
+                  {searchText.length === 0 ? "검색" : searchText}
                 </span>
               </div>
             </div>

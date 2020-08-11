@@ -46,5 +46,3 @@ export const FeedData = [
     ],
   },
 ];
-
-// export default FeedData;

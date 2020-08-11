@@ -1,6 +1,6 @@
 import React from "react";
-import "./Feeds.scss";
 import AddComment from "./AddComment/AddComment";
+import "./Feeds.scss";
 
 let lastCommentId = 100;
 
@@ -20,9 +20,17 @@ class Feeds extends React.Component {
     });
   };
 
-  EnterPush = (e) => {
+  enterPush = (e) => {
     if (e.key === "Enter" && e.currentTarget.value.length > 1) {
       this.addComment();
+    }
+  };
+
+  handleChangeClear = (e) => {
+    if (e.key === "Enter") {
+      this.setState({
+        newComment: "",
+      });
     }
   };
 
@@ -36,21 +44,22 @@ class Feeds extends React.Component {
   };
 
   addComment = () => {
-    const newComment = {};
-    newComment.userName = this.state.data.feedContents.userId;
-    newComment.content = this.state.newComment;
-    newComment.id = lastCommentId++;
+    const { data, newComment } = this.state;
+    const newCommentObj = {
+      userName: data.feedContents.userId,
+      content: newComment,
+      id: lastCommentId++,
+    };
     this.setState({
       newComment: "",
       data: {
         ...this.state.data,
-        feedComment: [...this.state.data.feedComment, newComment],
+        feedComment: [...this.state.data.feedComment, newCommentObj],
       },
     });
   };
 
   handleRemoveClick = (commentId) => {
-    console.log("hi");
     this.setState({
       data: {
         ...this.state.data,
@@ -153,7 +162,8 @@ class Feeds extends React.Component {
           <form className="feedComment" type="submit">
             <textarea
               className="commentText"
-              onKeyUp={(e) => this.EnterPush(e)}
+              onKeyUp={this.handleChangeClear}
+              onKeyDown={this.enterPush}
               onChange={this.handleCommentChange}
               value={this.state.newComment}
               placeholder="댓글 달기..."

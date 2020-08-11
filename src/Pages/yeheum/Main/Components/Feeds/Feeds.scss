@@ -29,7 +29,7 @@
 
       div {
         p {
-          margin: 5px 0;
+          margin-top: 5px;
           color: #b1b1b1;
           font-size: 14px;
         }
@@ -80,12 +80,14 @@
 
     li {
       display: flex;
-      position: relative;
+      justify-content: space-between;
+      align-items: center;
       list-style: none;
       text-decoration: none;
       margin-bottom: 3px;
 
-      a {
+      .userName {
+        font-weight: bold;
         padding: 0 5px;
       }
     }
@@ -111,9 +113,6 @@
   }
 
   .commentIcons {
-    position: absolute;
-    top: 0;
-    right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +124,7 @@
     }
 
     .searchXBtn {
-      background-image: url("../../123123.png");
+      background-image: url("/images/yeheum/123123.png");
       background-repeat: no-repeat;
       background-position: -318px -333px;
       height: 20px;

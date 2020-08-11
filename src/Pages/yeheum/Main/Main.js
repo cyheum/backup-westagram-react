@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.scss";
 import HeaderNav from "../../CommonComponents/Nav/HeaderNav";
-import SearchBox from "./Components/Nav/SearchBox";
+import SearchBox from "../../CommonComponents/Nav/SearchBox/SearchBox";
 import Feeds from "./Components/Feeds/Feeds";
 import AsideNav from "./Components/AsideNav/AsideNav";
 import { FeedData } from "./Components/Feeds/FeedData";
@@ -9,7 +9,7 @@ import { FeedData } from "./Components/Feeds/FeedData";
 class Main extends React.Component {
   render() {
     return (
-      <>
+      <div className="YeheumMain">
         <HeaderNav />
         <SearchBox />
         <main>
@@ -20,7 +20,7 @@ class Main extends React.Component {
             <AsideNav />
           </div>
         </main>
-      </>
+      </div>
     );
   }
 }

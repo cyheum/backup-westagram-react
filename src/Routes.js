@@ -4,6 +4,7 @@ import "./Styles/reset.scss";
 import "./Styles/common.scss";
 import LoginHeum from "./Pages/yeheum/Login/Login";
 import MainHeum from "./Pages/yeheum/Main/Main";
+import SignUpHeum from "./Pages/yeheum/SignUp/SignUp";
 import LoginTae from "./Pages/tae/Login/Login";
 import MainTae from "./Pages/tae/Main/Main";
 import LoginOh from "./Pages/seunghaoh/Login/Login";
@@ -18,6 +19,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/" component={LoginHeum} />
           <Route exact path="/main-yeheum" component={MainHeum} />
+          <Route exact path="/sign-up-yeheum" component={SignUpHeum} />
           <Route exact path="/login-tae" component={LoginTae} />
           <Route exact path="/main-tae" component={MainTae} />
           <Route exact path="/login-oh" component={LoginOh} />
