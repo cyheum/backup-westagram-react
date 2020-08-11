@@ -30,6 +30,25 @@ class Login extends React.Component {
     this.props.history.push("/main-yeheum");
   };
 
+  postToLocal = () => {
+    fetch("", {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        id: "kim",
+        password: "1234",
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.token) {
+          localStorage.setItem("wtw-token", response.token);
+        }
+      });
+  };
+
   render() {
     return (
       <div className="Login">
@@ -66,7 +85,7 @@ class Login extends React.Component {
                   className="loginButton"
                   name="button"
                   disabled={this.isIdPwInput()}
-                  onClick={this.goToMain}
+                  onClick={this.postToLocal}
                 >
                   로그인
                 </button>
