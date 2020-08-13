@@ -3,13 +3,14 @@ import "./SearchProfiles.scss";
 
 class SearchProfiles extends Component {
   render() {
+    const { imgSrc, userId, userName } = this.props.userData;
     return (
       <div className="SearchProfiles">
-        <div className="SearchBoxContainer">
-          <img src={this.props.userData.imgSrc} alt="profileImg" />
+        <div className="searchBoxContainer">
+          <img src={imgSrc} alt="profileImg" />
           <div>
-            <span className="userId">{this.props.userData.userId}</span>
-            <span>{this.props.userData.userName}</span>
+            <span className="userId">{userId}</span>
+            <span>{userName}</span>
           </div>
         </div>
       </div>

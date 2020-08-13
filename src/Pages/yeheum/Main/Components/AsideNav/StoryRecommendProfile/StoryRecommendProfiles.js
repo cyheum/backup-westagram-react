@@ -3,13 +3,13 @@ import "./StoryRecommendProfiles.scss";
 
 class StoryRecommendProfiles extends React.Component {
   render() {
-    const { author } = this.props;
+    const { profileImageSrc, id, description } = this.props.author;
     return (
       <div className="StoryRecommendProfiles">
-        <img src={author.profileImageSrc} alt="profileImg" />
+        <img src={profileImageSrc} alt="profileImg" />
         <div>
-          <a>{author.iD}</a>
-          <p>{author.description}</p>
+          <a>{id}</a>
+          <p>{description}</p>
         </div>
       </div>
     );

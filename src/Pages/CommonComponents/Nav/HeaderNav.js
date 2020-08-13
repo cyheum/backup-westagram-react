@@ -1,13 +1,11 @@
 import React from "react";
-import "./HeaderNav.scss";
 import { Link } from "react-router-dom";
+import "./HeaderNav.scss";
 
 class HeaderNav extends React.Component {
   constructor() {
     super();
-
     this.textInput = React.createRef();
-
     this.state = {
       searchText: "",
       isFocus: false,
@@ -21,11 +19,12 @@ class HeaderNav extends React.Component {
   };
 
   handleClickSearchBox = () => {
+    const { current } = this.textInput;
     this.setState({
       isFocus: true,
     });
-    this.textInput.current.focus();
-    this.textInput.current.select();
+    current.focus();
+    current.select();
   };
 
   handleBlurSearchBox = (e) => {

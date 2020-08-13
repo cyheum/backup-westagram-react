@@ -3,7 +3,6 @@ import React from "react";
 class AddComment extends React.Component {
   constructor() {
     super();
-
     this.state = {
       isLiked: false,
     };
@@ -17,6 +16,7 @@ class AddComment extends React.Component {
 
   render() {
     const { userName, content, id } = this.props.comment;
+    const { isLiked } = this.state;
 
     return (
       <li>
@@ -30,7 +30,7 @@ class AddComment extends React.Component {
               className="commentHeart colorHeart"
               onClick={this.handleLikeClick}
               src={
-                this.state.isLiked
+                isLiked
                   ? "/images/yeheum/redheart.png"
                   : "/images/yeheum/heart.png"
               }

@@ -1,23 +1,20 @@
 import React from "react";
-import "./Login.scss";
 import { Link, withRouter } from "react-router-dom";
+import "./Login.scss";
 
 class Login extends React.Component {
   constructor() {
     super();
-
     this.state = {
       email: "",
       pw: "",
+      errorMessage: "",
     };
   }
 
   isIdPwInput = () => {
-    return (
-      this.state.email.length === 0 ||
-      !this.state.email.includes("@") ||
-      this.state.pw.length <= 5
-    );
+    const { email, pw } = this.state;
+    return email.length === 0 || !email.includes("@") || pw.length <= 5;
   };
 
   handleChange = (e) => {
@@ -30,28 +27,37 @@ class Login extends React.Component {
     this.props.history.push("/main-yeheum");
   };
 
-  postToLocal = () => {
-    fetch("", {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
+  handleClickPost = () => {
+    const { email, pw } = this.state;
+    fetch("http://10.58.4.237:8000/user/signin", {
+      method: "POST",
       body: JSON.stringify({
-        id: "kim",
-        password: "1234",
+        email: email,
+        password: pw,
       }),
     })
       .then((response) => response.json())
       .then((response) => {
-        if (response.token) {
-          localStorage.setItem("wtw-token", response.token);
+        console.log(response);
+        if (response.message === "WRONG_PASSWORD") {
+          this.setState({
+            errorMessage: "비밀번호가 일치하지 않습니다.",
+          });
+        } else if (response.message === "INVALID_USER") {
+          this.setState({
+            errorMessage: "아이디가 없습니다.",
+          });
+        } else if (response.message === "Register_Success") {
+          localStorage.setItem("Authorization", response.access_token);
+          this.goToMain();
         }
       });
   };
 
   render() {
+    const { email, pw, errorMessage } = this.state;
     return (
-      <div className="Login">
+      <div className="LoginYeheum">
         <section className="wrapsection">
           <article className="wrapArticle">
             <img
@@ -70,26 +76,28 @@ class Login extends React.Component {
               <form className="wrapTexts" onChange={this.handleChange}>
                 <input
                   className="loginTextbox loginidText"
-                  value={this.state.email}
+                  value={email}
                   name="email"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
                 <input
                   className="loginTextbox loginpwText"
-                  value={this.state.pw}
+                  value={pw}
                   type="password"
                   name="pw"
                   placeholder="비밀번호"
                 />
                 <button
                   className="loginButton"
+                  type="button"
                   name="button"
                   disabled={this.isIdPwInput()}
-                  onClick={this.postToLocal}
+                  onClick={this.goToMain}
                 >
                   로그인
                 </button>
               </form>
+              <div className="errorMessage">{errorMessage}</div>
               <div className="forgetPw">
                 <div className="forgetPwText">비밀번호를 잊으셨나요?</div>
                 <Link to="/sign-up-yeheum">

@@ -16,12 +16,12 @@ class Feeds extends React.Component {
 
   handleCommentChange = (e) => {
     this.setState({
-      newComment: e.currentTarget.value,
+      newComment: e.target.value,
     });
   };
 
   enterPush = (e) => {
-    if (e.key === "Enter" && e.currentTarget.value.length > 1) {
+    if (e.key === "Enter" && e.target.value.length > 1) {
       this.addComment();
     }
   };
@@ -60,10 +60,11 @@ class Feeds extends React.Component {
   };
 
   handleRemoveClick = (commentId) => {
+    const { feedComment } = this.state.data;
     this.setState({
       data: {
         ...this.state.data,
-        feedComment: this.state.data.feedComment.filter((comment) => {
+        feedComment: feedComment.filter((comment) => {
           return comment.id !== commentId;
         }),
       },
@@ -79,8 +80,16 @@ class Feeds extends React.Component {
   render() {
     const {
       feedComment,
-      feedContents: { userId, userName, likedPeople, feedImgSrc, liked },
+      feedContents: {
+        contents,
+        userId,
+        userName,
+        likedPeople,
+        feedImgSrc,
+        liked,
+      },
     } = this.state.data;
+    const { isLiked, newComment } = this.state;
     return (
       <section className="feeds">
         <article>
@@ -101,7 +110,7 @@ class Feeds extends React.Component {
                 className="iconStyle bigHeart colorHeart"
                 onClick={this.changeHeartColor}
                 src={
-                  this.state.isLiked
+                  isLiked
                     ? "/images/yeheum/redheart.png"
                     : "/images/yeheum/heart.png"
                 }
@@ -135,7 +144,7 @@ class Feeds extends React.Component {
               <a>
                 외{" "}
                 <span className="peopleCount">
-                  {this.state.isLiked ? liked + 1 : liked}
+                  {isLiked ? liked + 1 : liked}
                 </span>
                 명
               </a>
@@ -144,7 +153,8 @@ class Feeds extends React.Component {
           </div>
           <div>
             <div className="feedContents">
-              <a>ye_heumheummm</a>두부야 안뇨오옹
+              <a>ye_heumheummm</a>
+              {contents}
             </div>
             <ul className="commentListContainer" key="commentList">
               {feedComment.map((comment) => {
@@ -165,7 +175,7 @@ class Feeds extends React.Component {
               onKeyUp={this.handleChangeClear}
               onKeyDown={this.enterPush}
               onChange={this.handleCommentChange}
-              value={this.state.newComment}
+              value={newComment}
               placeholder="댓글 달기..."
             ></textarea>
             <button

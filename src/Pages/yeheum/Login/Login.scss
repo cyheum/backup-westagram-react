@@ -1,6 +1,9 @@
 @import "../../../Styles/common.scss";
 
-.Login {
+.LoginYeheum {
+  background-color: #fafafa;
+  height: 100vh;
+
   .wrapLogin {
     width: 350px;
     height: 380px;
@@ -16,10 +19,8 @@
   }
 
   .wrapArticle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
+    @include center;
+    padding-top: 100px;
   }
 
   .instaImg {
@@ -96,5 +97,11 @@
   .wrapsection {
     min-width: 860px;
     margin: 0 auto;
+  }
+
+  .errorMessage {
+    color: red;
+    font-weight: bold;
+    font-size: 17px;
   }
 }

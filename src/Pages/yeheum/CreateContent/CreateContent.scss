@@ -1,0 +1,86 @@
+@import "../../../Styles/common.scss";
+
+.CreateContent {
+  height: 100vh;
+  background-color: #fafafa;
+
+  @media (max-width: 1024px) {
+    .AsideNav {
+      display: none;
+    }
+
+    .createContentContainer {
+      margin: 0 auto 50px;
+    }
+  }
+
+  main {
+    padding: 80px 0;
+  }
+
+  .wrapMain {
+    position: relative;
+    max-width: 935px;
+    margin: 0 auto;
+
+    .createContentContainer {
+      width: 600px;
+      height: 700px;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      align-items: center;
+      background-color: white;
+      border: 1px solid $mediumGrayColor;
+      border-radius: 3px;
+
+      .showImg {
+        max-width: 200px;
+      }
+
+      .content {
+        @include center;
+        flex-flow: column;
+        margin: 10px 0;
+
+        .imageUrl {
+          width: 350px;
+          height: 50px;
+          padding: 20px;
+        }
+
+        .imageViewBtn {
+          margin-left: 30px;
+          width: 70px;
+          height: 40px;
+          color: white;
+          background-color: gray;
+          cursor: pointer;
+        }
+
+        .comment {
+          width: 450px;
+          height: 100px;
+          margin: 10px 0;
+          padding: 20px;
+        }
+      }
+      .contentSubmitBtn {
+        width: 70px;
+        height: 40px;
+        background-color: #0095f6;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+}

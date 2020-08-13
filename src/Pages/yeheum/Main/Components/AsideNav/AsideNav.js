@@ -1,12 +1,11 @@
 import React from "react";
-import UserData from "../../UserData";
+import UserData from "./UserData";
 import StoryRecommendProfiles from "./StoryRecommendProfile/StoryRecommendProfiles";
 import "./AsideNav.scss";
 
 class AsideNav extends React.Component {
   constructor() {
     super();
-
     this.state = {
       isStoryBtnPushed: false,
       isRecommendBtnPushed: false,
@@ -26,6 +25,7 @@ class AsideNav extends React.Component {
   };
 
   render() {
+    const { isStoryBtnPushed, isRecommendBtnPushed } = this.state;
     return (
       <aside className="AsideNav">
         <div className="main-right">
@@ -38,9 +38,7 @@ class AsideNav extends React.Component {
           </div>
           <div
             className={
-              this.state.isStoryBtnPushed
-                ? "heightAutoStoryRecomWrap"
-                : "storyRecomWrap"
+              isStoryBtnPushed ? "heightAutoStoryRecomWrap" : "storyRecomWrap"
             }
           >
             <div className="storyRecomStyle">
@@ -65,7 +63,7 @@ class AsideNav extends React.Component {
           </div>
           <div
             className={
-              this.state.isRecommendBtnPushed
+              isRecommendBtnPushed
                 ? "heightAutoStoryRecomWrap"
                 : "storyRecomWrap"
             }

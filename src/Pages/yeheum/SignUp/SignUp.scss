@@ -2,14 +2,13 @@
 
 .WrapSignUpBoxContain {
   width: 350px;
-  border: 1px solid black;
-  background-color: white;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
-  margin: 50px auto 0;
   border: 1px solid $lightGrayColor;
+  background-color: white;
+  margin: 50px auto 0;
 
   img {
     width: 175px;
@@ -17,9 +16,9 @@
   }
 
   .SignUpDescriptionText {
+    width: 268px;
     color: $darkGrayColor;
     font-weight: bold;
-    width: 268px;
     font-size: 17px;
     text-align: center;
     margin-bottom: 20px;
@@ -33,11 +32,11 @@
     .userInfoTextBox {
       width: 268px;
       height: 36px;
-      margin: 3px 0;
-      padding: 9px 7px;
       background-color: $whiteGrayColor;
       border: 1px solid $lightGrayColor;
       border-radius: 3px;
+      margin: 3px 0;
+      padding: 9px 7px;
     }
 
     .submitBtn {
@@ -51,6 +50,7 @@
 
       &:disabled {
         opacity: 0.4;
+        cursor: default;
       }
     }
   }

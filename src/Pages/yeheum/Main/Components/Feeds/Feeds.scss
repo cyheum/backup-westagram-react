@@ -3,7 +3,7 @@
   border: 1px solid #dddddd;
   border-radius: 3px;
   background-color: white;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 
   .iconStyle {
     height: 25px;
@@ -84,6 +84,7 @@
       align-items: center;
       list-style: none;
       text-decoration: none;
+      word-break: break-all;
       margin-bottom: 3px;
 
       .userName {
@@ -124,11 +125,11 @@
     }
 
     .searchXBtn {
+      height: 20px;
+      width: 20px;
       background-image: url("/images/yeheum/123123.png");
       background-repeat: no-repeat;
       background-position: -318px -333px;
-      height: 20px;
-      width: 20px;
       cursor: pointer;
     }
   }
@@ -146,10 +147,6 @@
       margin: 18px 0;
       resize: none;
       overflow-y: auto;
-
-      &:-webkit-scrollbar {
-        display: none;
-      }
     }
 
     .commentButton {

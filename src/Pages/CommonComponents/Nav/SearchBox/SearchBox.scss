@@ -9,13 +9,13 @@
       height: 362px;
       display: flex;
       position: fixed;
+      z-index: 20;
       border: 1px solid #dddddd;
       border-radius: 3px;
       background-color: white;
-      z-index: 20;
       overflow: auto;
 
-      .WrapSearchList {
+      .wrapSearchList {
         width: 100%;
       }
     }
@@ -29,13 +29,13 @@
       height: 362px;
       display: flex;
       position: fixed;
+      z-index: 20;
       border: 1px solid #dddddd;
       border-radius: 3px;
       background-color: white;
-      z-index: 20;
       overflow: auto;
 
-      .WrapSearchList {
+      .wrapSearchList {
         width: 100%;
       }
     }

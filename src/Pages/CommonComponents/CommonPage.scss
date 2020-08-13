@@ -1,0 +1,81 @@
+@import "../../Styles/common.scss";
+
+@keyframes moveProfile {
+  0% {
+    margin-left: 100%;
+    width: 300%;
+    opacity: 0;
+  }
+  80% {
+    margin-right: 5%;
+  }
+}
+
+@keyframes moveLogo {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes moveName {
+  50% {
+    padding-bottom: 20px;
+    color: gray;
+  }
+}
+
+.CommonPage {
+  @include center;
+  flex-flow: column;
+
+  .WrapMainLogo {
+    width: 100%;
+    @include center;
+    animation: moveLogo 2s 0s backwards;
+
+    .mainLogoImg {
+      margin: 40px auto;
+      padding: 0 300px 20px;
+      border-bottom: 1px solid gray;
+    }
+  }
+
+  .mainProfileImgContainer {
+    @include center;
+    flex-flow: column;
+    animation: moveProfile 2.3s 1s backwards;
+
+    div {
+      height: 380px;
+      @include center;
+
+      .profileNameContainer {
+        @include center;
+        flex-flow: column;
+
+        .mainProfileImg {
+          max-width: 350px;
+          max-height: 320px;
+          margin: 5px 30px;
+          border-radius: 20px;
+          transition: all 1s;
+          transform: scale(0.85);
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+            border-radius: 50px;
+            transition: all 1s;
+            transform: scale(1);
+          }
+        }
+        .profileName {
+          color: black;
+          font-style: italic;
+          font-size: 23px;
+          animation: moveName 2s 3s infinite;
+        }
+      }
+    }
+  }
+}
