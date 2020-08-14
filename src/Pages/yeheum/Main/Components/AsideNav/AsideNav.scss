@@ -36,21 +36,20 @@
     }
   }
 
-  .storyRecomWrap,
-  .heightAutoStoryRecomWrap {
+  .storyRecomWrap {
     border: 1px solid #dddddd;
     border-radius: 3px;
     background-color: white;
     margin-bottom: 20px;
-  }
 
-  .storyRecomWrap {
-    height: 225px;
-    overflow: hidden;
-  }
+    &.heightAuto {
+      overflow: auto;
+    }
 
-  .heightAutoStoryRecomWrap {
-    overflow: auto;
+    &.heightFix {
+      height: 225px;
+      overflow: hidden;
+    }
   }
 
   .storyRecomStyle {

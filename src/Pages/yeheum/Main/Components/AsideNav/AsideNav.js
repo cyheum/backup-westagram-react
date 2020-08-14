@@ -38,7 +38,9 @@ class AsideNav extends React.Component {
           </div>
           <div
             className={
-              isStoryBtnPushed ? "heightAutoStoryRecomWrap" : "storyRecomWrap"
+              isStoryBtnPushed
+                ? "heightAuto storyRecomWrap"
+                : "heightFix storyRecomWrap"
             }
           >
             <div className="storyRecomStyle">
@@ -64,8 +66,8 @@ class AsideNav extends React.Component {
           <div
             className={
               isRecommendBtnPushed
-                ? "heightAutoStoryRecomWrap"
-                : "storyRecomWrap"
+                ? "heightAuto storyRecomWrap"
+                : "heightFix storyRecomWrap"
             }
           >
             <div className="storyRecomStyle">
