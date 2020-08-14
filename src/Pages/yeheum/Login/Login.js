@@ -42,7 +42,7 @@ class Login extends React.Component {
           WRONG_PASSWORD: "비밀번호가 일치하지 않습니다.",
           INVALID_USER: "아이디가 없습니다.",
         };
-        if (message === "Register_Success") {
+        if (message === "REGISTER_SUCCESS") {
           localStorage.setItem("Authorization", access_token);
           this.goToMain();
           return;
