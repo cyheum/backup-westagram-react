@@ -26,7 +26,6 @@ class CreateContent extends React.Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         this.goToMain();
       });
   };
@@ -68,7 +67,7 @@ class CreateContent extends React.Component {
                     name="imageSrc"
                     className="imageUrl"
                     placeholder="이미지 url을 넣어주세요"
-                  ></input>
+                  />
                   <button
                     onClick={this.handleClick}
                     type="button"
@@ -82,7 +81,7 @@ class CreateContent extends React.Component {
                   name="comment"
                   className="comment"
                   placeholder="게시글을 입력해주세요"
-                ></input>
+                />
               </form>
               <button
                 onClick={this.handlePostContent}

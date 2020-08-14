@@ -32,25 +32,22 @@ class Login extends React.Component {
     fetch("http://10.58.4.237:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
-        email: email,
+        email,
         password: pw,
       }),
     })
       .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.message === "WRONG_PASSWORD") {
-          this.setState({
-            errorMessage: "비밀번호가 일치하지 않습니다.",
-          });
-        } else if (response.message === "INVALID_USER") {
-          this.setState({
-            errorMessage: "아이디가 없습니다.",
-          });
-        } else if (response.message === "Register_Success") {
-          localStorage.setItem("Authorization", response.access_token);
+      .then(({ message, access_token }) => {
+        const msgTable = {
+          WRONG_PASSWORD: "비밀번호가 일치하지 않습니다.",
+          INVALID_USER: "아이디가 없습니다.",
+        };
+        if (message === "Register_Success") {
+          localStorage.setItem("Authorization", access_token);
           this.goToMain();
+          return;
         }
+        this.setState({ errorMessage: msgTable[message] });
       });
   };
 

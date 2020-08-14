@@ -36,7 +36,7 @@ class CommonPage extends Component {
     const { profilesTop, profilesBottom } = this.state;
     return (
       <section className="CommonPage">
-        <div className="WrapMainLogo">
+        <div className="wrapMainLogo">
           <img
             className="mainLogoImg"
             alt="mainLogo"
@@ -50,7 +50,7 @@ class CommonPage extends Component {
                 <Link to={el.goTo}>
                   <img className="mainProfileImg" alt={el.alt} src={el.src} />
                 </Link>
-                <div className="profileName">yeheum</div>
+                <div className="profileName">{el.alt}</div>
               </div>
             ))}
           </div>
@@ -60,7 +60,7 @@ class CommonPage extends Component {
                 <Link to={el.goTo}>
                   <img className="mainProfileImg" alt={el.alt} src={el.src} />
                 </Link>
-                <div className="profileName">yeheum</div>
+                <div className="profileName">{el.alt}</div>
               </div>
             ))}
           </div>

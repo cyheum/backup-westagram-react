@@ -63,11 +63,7 @@ class SignUp extends React.Component {
         email: userAdress,
         password: userPw,
       }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        this.goToMain();
-      });
+    }).then(() => this.goToMain());
   };
 
   render() {
@@ -89,7 +85,7 @@ class SignUp extends React.Component {
               name={el.name}
               type={el.type}
               placeholder={el.placeholder}
-            ></input>
+            />
           ))}
           <button
             className="submitBtn"
