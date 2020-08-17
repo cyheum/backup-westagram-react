@@ -2,7 +2,7 @@ import React from "react";
 import HeaderNav from "../../CommonComponents/Nav/HeaderNav";
 import SearchBox from "../../CommonComponents/Nav/SearchBox/SearchBox";
 import AsideNav from "../Main/Components/AsideNav/AsideNav";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import "./CreateContent.scss";
 
 class CreateContent extends React.Component {

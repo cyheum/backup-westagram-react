@@ -1,6 +1,6 @@
 import React from "react";
 import "./SignUp.scss";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor() {
@@ -42,7 +42,7 @@ class SignUp extends React.Component {
   };
 
   isUserInfoInput = () => {
-    const { userAdress, userName, userId, userPw, inputContents } = this.state;
+    const { userAdress, userName, userId, userPw } = this.state;
     return (
       userAdress.length === 0 ||
       userName.length === 0 ||

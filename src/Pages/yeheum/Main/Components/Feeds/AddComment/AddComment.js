@@ -15,11 +15,14 @@ class AddComment extends React.Component {
   };
 
   render() {
-    const { userName, content, id } = this.props.comment;
+    const {
+      isCommentHidden,
+      comment: { userName, content, id },
+    } = this.props;
     const { isLiked } = this.state;
 
     return (
-      <li>
+      <li className={isCommentHidden ? "hideComment" : "showComment"}>
         <div>
           <span className="userName">{userName}</span>
           {content}

@@ -11,6 +11,7 @@ class Feeds extends React.Component {
       data: props.feed,
       isLiked: false,
       newComment: "",
+      isCommentHidden: true,
     };
   }
 
@@ -77,6 +78,12 @@ class Feeds extends React.Component {
     });
   };
 
+  handleShowAllComment = () => {
+    this.setState({
+      isCommentHidden: !this.state.isCommentHidden,
+    });
+  };
+
   render() {
     const {
       feedComment,
@@ -89,7 +96,7 @@ class Feeds extends React.Component {
         liked,
       },
     } = this.state.data;
-    const { isLiked, newComment } = this.state;
+    const { isLiked, newComment, isCommentHidden } = this.state;
     return (
       <section className="feeds">
         <article>
@@ -162,10 +169,23 @@ class Feeds extends React.Component {
                   <AddComment
                     key={comment.id}
                     comment={comment}
+                    isCommentHidden={isCommentHidden}
                     clickRemoveBtn={this.handleRemoveClick}
                   />
                 );
               })}
+
+              <button
+                onClick={this.handleShowAllComment}
+                className="moreViewCommentBtn"
+                type="button"
+              >
+                {feedComment.length < 3
+                  ? ""
+                  : isCommentHidden
+                  ? "...더보기"
+                  : "...접기"}
+              </button>
             </ul>
             <div className="feedTime">6시간전</div>
           </div>
@@ -177,7 +197,7 @@ class Feeds extends React.Component {
               onChange={this.handleCommentChange}
               value={newComment}
               placeholder="댓글 달기..."
-            ></textarea>
+            />
             <button
               className="commentButton"
               disabled={this.commentButtonDisabled()}

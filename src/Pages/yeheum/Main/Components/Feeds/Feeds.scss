@@ -87,10 +87,22 @@
       word-break: break-all;
       margin-bottom: 3px;
 
+      &.hideComment {
+        &:nth-child(n + 3) {
+          display: none;
+        }
+      }
+
       .userName {
         font-weight: bold;
         padding: 0 5px;
       }
+    }
+
+    .moreViewCommentBtn {
+      background-color: white;
+      color: gray;
+      cursor: pointer;
     }
   }
 
